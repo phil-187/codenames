@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>CODENAMES 2020</title>
+
+  <!-- CSS Style sheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+  <!--  Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+  <h1>CODENAMES 2020</h1>
+
+  <div class="game">
+
+
+
+    <div class="row rowstyle">
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word1">Default1</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word2">Default2</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word3">Default3</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word4">Default4</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word5">Default5</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+    </div>
+
+
+
+    <div class="row rowstyle">
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word6">Default6</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word7">Default7</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word8">Default8</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word9">Default9</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word10">Default10</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+    </div>
+
+
+
+    <div class="row rowstyle">
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word11">Default11</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word12">Default12</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word13">Default13</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word14">Default14</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word15">Default15</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+    </div>
+
+
+
+    <div class="row rowstyle">
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word16">Default16</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word17">Default17</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word18">Default18</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word19">Default19</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word20">Default20</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+    </div>
+
+
+
+    <div class="row rowstyle">
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word21">Default21</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word22">Default22</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word23">Default23</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word24">Default24</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+      <div class="col-2 cardstyle">
+        <span class="wordcard" id="word25">Default25</span>
+        <br />
+        <span class="navigation" onclick="changeBlack(this)">« |</span>
+        <span class="navigation" onclick="changeRed(this)"> rot |</span>
+        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
+        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+      </div>
+    </div>
+
+    <button onclick="showNewDeck()" type="button" class="btn btn-success">Karten mischen</button>
+  </div>
+
+
+
+
+
+  <!-- JS Berechnung-->
+  <script type="text/javascript">
+    //change card color //
+    function changeBlack(divObj) {
+      divObj.parentElement.style.background = "black";
+    }
+
+    function changeRed(divObj) {
+      divObj.parentElement.style.background = "red";
+    }
+
+    function changeBlue(divObj) {
+      divObj.parentElement.style.background = "blue";
+    }
+
+    function changeGray(divObj) {
+      divObj.parentElement.style.background = "#999";
+    }
+
+
+
+
+    // Shuffle Cards //
+
+    // Function to shuffle the array content
+    function shuffleWords(word_library) {
+      for (var i = word_library.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = word_library[i];
+        word_library[i] = word_library[j];
+        word_library[j] = temp;
+
+      }
+      console.log(word_library);
+      return word_library;
+
+    }
+
+
+    // Function to show the result
+    function showNewDeck() {
+      var word_library = ["STEMPEL",
+"MINI",
+"KRANKENHAUS",
+"FEST",
+"WIRTSCHAFT",
+"ENTE",
+"AUFLAUF",
+"KOHLE",
+"MÜHLE",
+"NIETE",
+"TORTE",
+"BUND",
+"RÜCKEN",
+"SUPERHELD",
+"FEIGE",
+"FEDER",
+"BERGSTEIGER",
+"MEER",
+"POL",
+"ZITRONE",
+"GLOCKE",
+"STRAND",
+"KOCH",
+"ENGLAND",
+"TAFEL",
+"KRANKHEIT",
+"RAUTE",
+"NEWYORK",
+"ÄGYPTEN",
+"FUß",
+"HONIG",
+"RING",
+"KORB",
+"BLAU",
+"HORN",
+"SCHNUR",
+"ROM",
+"KANAL",
+"TAG",
+"LINIE",
+"GESCHOSS",
+"LOCHNESS",
+"ERIKA",
+"NETZ",
+"MINE",
+"DEMO",
+"BAD",
+"GOLF",
+"PRINZESSIN",
+"VORSATZ",
+"FLECK",
+"SCHIFF",
+"PYRAMIDE",
+"BAR",
+"UHR",
+"SPINNE",
+"STUHL",
+"ENGEL",
+"MUTTER",
+"BURG",
+"KONZERT",
+"BLÜTE",
+"BOXER",
+"RIEGEL",
+"MALER",
+"KREBS",
+"GERICHT",
+"PLATTE",
+"AUSDRUCK",
+"REIF",
+"BUSCH",
+"FRANKREICH",
+"SCHEIN",
+"ZYLINDER",
+"ROST",
+"ZOLL",
+"BAHN",
+"DICHTUNG",
+"SPION",
+"PENSION",
+"STOCK",
+"FALL",
+"HORST",
+"KAPELLE",
+"MANDEL",
+"FLÜGEL",
+"ELF",
+"SATURN",
+"AUTO",
+"TON",
+"BALL",
+"HEXE",
+"DIEB",
+"WASSER",
+"AUSTRALIEN",
+"LEBEN",
+"MUND",
+"GRAS",
+"TOR",
+"BANDE",
+"WALD",
+"BINDUNG",
+"SCHLANGE",
+"PO",
+"SIEGEL",
+"BRAND",
+"MAL",
+"GOLD",
+"HAUPT",
+"HUBSCHRAUBER",
+"HOLLYWOOD",
+"KREIS",
+"DINOSAURIER",
+"GLAS",
+"FEUER",
+"PUNKT",
+"BATTERIE",
+"LEITER",
+"LIPPE",
+"MESSER",
+"WELLE",
+"GEIST",
+"SEITE",
+"MASCHINE",
+"HAND",
+"APFEL",
+"MESSE",
+"FUCHS",
+"ERDE",
+"BULLE",
+"DIETRICH",
+"STAAT",
+"JET",
+"WINNETOU",
+"ALPEN",
+"HOTEL",
+"WOLKENKRATZER",
+"BAU",
+"BRÜCKE",
+"BOTSCHAFT",
+"GESCHIRR",
+"CHINA",
+"MILLIONÄR",
+"TOD",
+"KIRCHE",
+"BETT",
+"KÖNIGIN",
+"POLIZEI",
+"RITTER",
+"TASTE",
+"SCHUH",
+"KRONE",
+"RÖMER",
+"HAMBURGER",
+"KAMM",
+"STAMM",
+"ROCK",
+"OPER",
+"ORANGE",
+"SPIEL",
+"HIMALAYA",
+"KOKS",
+"MEXIKO",
+"NUSS",
+"AFRIKA",
+"DRACHE",
+"FACKEL",
+"KASINO",
+"ROBOTER",
+"BRAUSE",
+"WASHINGTON",
+"ATLANTIS",
+"TAU",
+"GRIECHENLAND",
+"FALLSCHIRM",
+"STERN",
+"ALIEN",
+"TELESKOP",
+"BEIN",
+"SCHIMMEL",
+"ZU",
+"ATLAS",
+"BOGEN",
+"VIERTEL",
+"BREMSE",
+"KORN",
+"BECKEN",
+"KAPITÄN",
+"CHEMIE",
+"PAPIER",
+"MOOS",
+"PFEIFE",
+"QUELLE",
+"VEREIN",
+"JURA",
+"KRIEG",
+"BOMBE",
+"INKA",
+"FUTTER",
+"BÄR",
+"TURM",
+"LASTER",
+"LAKRITZE",
+"ZENTAUR",
+"MANGEL",
+"FLUR",
+"NOTE",
+"AUFZUG",
+"KIPPE",
+"FILM",
+"BOCK",
+"SATELLIT",
+"WAL",
+"OKTOPUS",
+"RIEMEN",
+"KIEL",
+"KÄFER",
+"OPTIK",
+"HARZ",
+"RASEN",
+"DAME",
+"BLATT",
+"TAKT",
+"SKELETT",
+"SCHNABELTIER",
+"PINGUIN",
+"THEATER",
+"SCHNEE",
+"WURF",
+"CHOR",
+"SCHALTER",
+"ZWERG",
+"LIMOUSINE",
+"WURM",
+"DRUCKER",
+"KNOPF",
+"BÖRSE",
+"LADUNG",
+"PFLASTER",
+"HAHN",
+"KRAFT",
+"WÜRFEL",
+"ABSATZ",
+"SHAKESPEARE",
+"LONDON",
+"SCHILD",
+"GANG",
+"FISCH",
+"HERZ",
+"MITTEL",
+"KERZE",
+"STAR",
+"GRUND",
+"NADEL",
+"KREUZ",
+"STADION",
+"QUARTETT",
+"ZEIT",
+"LÖWE",
+"SCHULE",
+"SCHOTTEN",
+"STRAUSS",
+"BACH",
+"ROLLE",
+"ÖL",
+"SOLDAT",
+"WIND",
+"GLÜCK",
+"KATZE",
+"SATZ",
+"JÄGER",
+"GENIE",
+"ARM",
+"LOGE",
+"HEIDE",
+"AUGE",
+"TISCH",
+"BANK",
+"INDIEN",
+"DECKE",
+"BAUER",
+"GIFT",
+"OLYMP",
+"MUSCHEL",
+"LÖSUNG",
+"STROM",
+"MORGENSTERN",
+"LUXEMBURG",
+"GÜRTEL",
+"KÄNGURUH",
+"MOND",
+"EIS",
+"GUT",
+"KAROTTE",
+"KNIE",
+"LINSE",
+"GEHALT",
+"PFERD",
+"ADLER",
+"DAUMEN",
+"BRÖTCHEN",
+"AKT",
+"RUTE",
+"DOKTOR",
+"BLINKER",
+"LUFT",
+"KIEFER",
+"ROULETTE",
+"HUT",
+"BROT",
+"STRASSE",
+"PEITSCHE",
+"TOKIO",
+"KUNDE",
+"GABEL",
+"ABGABE",
+"TANZ",
+"LEIM",
+"LÖFFEL",
+"ESSEN",
+"LÄUFER",
+"ZAHN",
+"EUROPA",
+"MARK",
+"BAYERN",
+"KARTE",
+"LOCH",
+"NACHT",
+"FORSCHER",
+"HUND",
+"KÖNIG",
+"SCHELLE",
+"WEIDE",
+"STEUER",
+"MATHE",
+"AMERIKANER",
+"FINGER",
+"LAGER",
+"DROSSEL",
+"BIRNE",
+"UMZUG",
+"BARREN",
+"VERBAND",
+"IRIS",
+"TEMPO",
+"FUNKEN",
+"FESSEL",
+"JAHR",
+"MAUS",
+"ELFENBEIN",
+"TAUCHER",
+"PASS",
+"KIWI",
+"LEHRER",
+"SCHLOSS",
+"ANWALT",
+"GESICHT",
+"FLASCHE",
+"SCHUPPEN",
+"HASE",
+"NINJA",
+"MOSKAU",
+"PILOT",
+"MAST",
+"SCHEIBE",
+"HERING",
+"STIFT",
+"WATT",
+"FIGUR",
+"NAGEL",
+"RIESE",
+"SCHNEEMANN",
+"WANZE",
+"EINHORN",
+"HUPE",
+"DEUTSCHLAND",
+"SCHALE",
+"SEKRETÄR",
+"PISTOLE",
+"FLIEGE",
+"FLÖTE",
+"TOAST",
+"BERLINER",
+"PIRAT",
+"LASER",
+"FLÄCHE",
+"OSTEN",
+"SCHIRM",
+"KATER",
+"KETCHUP",
+"STRUDEL",
+"WAND",
+"GRAD",
+"ZELLE",
+"LEUCHTE",
+"ANTARKTIS"
+      ];
+      var chosen_words = shuffleWords(word_library)
+      document.getElementById("word1").innerHTML = word_library[0];
+      document.getElementById("word2").innerHTML = word_library[1];
+      document.getElementById("word3").innerHTML = word_library[2];
+      document.getElementById("word4").innerHTML = word_library[3];
+      document.getElementById("word5").innerHTML = word_library[4];
+      document.getElementById("word6").innerHTML = word_library[5];
+      document.getElementById("word7").innerHTML = word_library[6];
+      document.getElementById("word8").innerHTML = word_library[7];
+      document.getElementById("word9").innerHTML = word_library[8];
+      document.getElementById("word10").innerHTML = word_library[9];
+      document.getElementById("word11").innerHTML = word_library[10];
+      document.getElementById("word12").innerHTML = word_library[11];
+      document.getElementById("word13").innerHTML = word_library[12];
+      document.getElementById("word14").innerHTML = word_library[13];
+      document.getElementById("word15").innerHTML = word_library[14];
+      document.getElementById("word16").innerHTML = word_library[15];
+      document.getElementById("word17").innerHTML = word_library[16];
+      document.getElementById("word18").innerHTML = word_library[17];
+      document.getElementById("word19").innerHTML = word_library[18];
+      document.getElementById("word20").innerHTML = word_library[19];
+      document.getElementById("word21").innerHTML = word_library[20];
+      document.getElementById("word22").innerHTML = word_library[21];
+      document.getElementById("word23").innerHTML = word_library[22];
+      document.getElementById("word24").innerHTML = word_library[23];
+      document.getElementById("word25").innerHTML = word_library[24];
+      console.log("Test")
+
+    }
+
+  </script>
+</body>
+
+
+</html>
