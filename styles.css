@@ -1,39 +1,50 @@
 body {
   background-color: black;
   color: white;
-  }
-
-  h1{
-    padding-top: 15px;
-    text-align: center;
-  }
-
-.col-2{
-  padding: 30px;
 }
 
-.wordcard{
-  font-size: 32px;
+h1 {
+  padding-top: 15px;
+  text-align: center;
 }
 
-.cardstyle{
+.border {
+  color: white;
+}
+
+.cardstyle {
   text-align: center;
   border-style: solid;
   border-color: white;
   border-width: 2px;
+  border-radius: 15px;
 }
 
-.rowstyle{
+.col-lg-2 {
+  padding: 20px;
+}
+
+.game {
+  padding: 0 15px 10px 15px;
+}
+
+.header {
+  padding: 0 15px 10px 60px;
+}
+
+.footer {
+  padding: 0 15px 10px 15px;
+}
+
+.navigation {
+  font-size: 18px;
+  text-align: center;
+}
+
+.rowstyle {
   margin: 30px 40px;
 }
 
-.border{
-  color:white;
-}
-.game{
-  padding:0 15px 10px 15px;
-}
-.navigation{
-  font-size:18px;
-  text-align: center;
+.wordcard {
+  font-size: 2rem;
 }
