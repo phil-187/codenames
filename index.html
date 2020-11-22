@@ -34,38 +34,6 @@
     </div>
   </div>
 
-  <!-- Modal content -->
-  <div id="modal-box" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-
-      <h3><b>Spiel- und Kartennummer eingeben</b></h3>
-      <div class="modal-fields">
-        <label>Spielnummer eingeben</label>
-        <input class="form-control" type="number" placeholder="Spielnummer eingeben (1-999)" id="userinput" min="1">
-        <br />
-        <label>Kartennummer eingeben</label>
-        <input class="form-control" type="number" placeholder="Kartennummer eingeben (1-70)" id="mapping_input" min="1" max="70">
-      </div>
-      <br />
-      <div class="modal-fields">
-        <button class="btn modal-primary-btn" type="submit" onclick="loadGame(); hiddenMapping(); clearStyling(); closemodal()" id="guesser-btn">Spielfeld als <b>Ratender</b> laden</button>
-      </div>
-      <br /><br />
-      <div class="modal-fields">
-        <button class="btn modal-secondary-btn" type="submit" onclick="loadGame(); mappingByNumber(); closemodal()" id="explainer-btn">Spielfeld als <b>Erklärer</b> laden</button>
-        <br /><br /><br /><br />
-        <!--Zufallsgenerator
-        <h4>Zufällige Spiel- und Kartennummer generieren</h4>
-        <div class="modal-fields">
-          <button class="btn modal-btn" type="submit" onclick="generateRandomNumber()" id="random_number">Zufallszahlen generieren</button>
--->
-      </div>
-
-    </div>
-
-  </div>
-  </div>
 
 
   <!--Game-->
@@ -185,12 +153,50 @@
       <p class="debug-footer-text">
         Debug Options
       </p>
+      <p class="debug-footer-text" id="currentGameText">
+        Aktuell kein Spiel geladen
+      </p>
       <button onclick="showNewDeck(); clearStyling()" type="button" class="btn btn-dark debug-btn">Zufallskarten</button>
       <button onclick="clearStyling()" type="button" class="btn btn-dark debug-btn">Farben zurücksetzen <br /> (Ratender)</button>
       <button onclick="clearStyling(); mappingByNumber()" type="button" class="btn btn-dark debug-btn">Farben zurücksetzen <br />(Erklärer)</button>
     </div>
   </div>
+  <!-- Modal content -->
+  <div id="modal-box" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <h3><b>Spiel- und Kartennummer eingeben</b></h3>
+      <div class="modal-fields">
+        <label>Spielnummer eingeben</label>
+        <input class="form-control" type="number" placeholder="Spielnummer eingeben (1-999)" id="userinput" min="1">
+        <br />
+        <label>Kartennummer eingeben</label>
+        <input class="form-control" type="number" placeholder="Kartennummer eingeben (1-70)" id="mapping_input" min="1" max="70">
+      </div>
+      <br />
+      <div class="modal-fields">
+        <button class="btn modal-primary-btn" type="submit" onclick="loadGame(); hiddenMapping(); clearStyling(); closemodal()" id="guesser-btn">Spielfeld als <b>Ratender</b> laden</button>
+      </div>
+      <br /><br />
+      <div class="modal-fields">
+        <button class="btn modal-secondary-btn" type="submit" onclick="loadGame(); mappingByNumber(); closemodal()" id="explainer-btn">Spielfeld als <b>Erklärer</b> laden</button>
+        <br /><br /><br /><br />
+        <!--Zufallsgenerator
+        <h4>Zufällige Spiel- und Kartennummer generieren</h4>
+        <div class="modal-fields">
+          <button class="btn modal-btn" type="submit" onclick="generateRandomNumber()" id="random_number">Zufallszahlen generieren</button>
+-->
+      </div>
+
+    </div>
+
   </div>
+
+
+
+
+
 
 
 
@@ -833,6 +839,7 @@
     // Modal Buttons Funktion, um das Modal bei Klick auf Submit Buttons zu schließen
     function closemodal() {
       modal.style.display = "none";
+      document.getElementById("currentGameText").innerHTML = "Aktuelle <b>Spielnummer: </b>" + currentGame + ", <b>Kartennummer:</b> " + currentMappingNummer;
     }
     // When the user clicks on the button, open the modal
     btn.onclick = function() {
