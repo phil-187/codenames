@@ -208,6 +208,7 @@
     var currentMap = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
     var currentGame = 0;
     var currentMappingNummer = 0;
+    var startingTeam = "keiner";
 
     // Klick auf Wortkarte - Karte gemäß aktuellem Mapping einfärben
     function revealColor(divObj) {
@@ -792,6 +793,13 @@
         console.log(currentMap);
         tempMappingID = "word_mapping";
         var tempElementID = "word";
+        if (currentMappingNummer <= 35) {
+          startingTeam = "Team <b>Blau</b> beginnt";
+        } else if (currentMappingNummer >= 36) {
+          startingTeam = "Team <b>Rot</b> beginnt";
+        } else {
+          startingTeam = "Fehler beim Mapping. Bitte neu starten"
+        }
 
         for (i = 0; i < 25; i++) {
           tempElementID += i + 1;
@@ -828,6 +836,14 @@
       var input_mapping = document.getElementById('mapping_input');
       currentMappingNummer = input_mapping.value;
       if (currentMappingNummer > 0 && currentMappingNummer <= 70) {
+        if (currentMappingNummer <= 35) {
+          startingTeam = "Team <b>Blau</b> beginnt";
+        } else if (currentMappingNummer >= 36) {
+          startingTeam = "Team <b>Rot</b> beginnt";
+        } else {
+          startingTeam = "Fehler beim Mapping. Bitte neu starten"
+        }
+
         var tempMappingID = "word_mapping";
         tempMappingID += input_mapping.value;
         currentMap = eval(tempMappingID);
@@ -851,7 +867,7 @@
     // Modal Buttons Funktion, um das Modal bei Klick auf Submit Buttons zu schließen
     function closemodal() {
       modal.style.display = "none";
-      document.getElementById("currentGameText").innerHTML = "Aktuelle <b>Spielnummer: </b>" + currentGame + ", <b>Kartennummer:</b> " + currentMappingNummer;
+      document.getElementById("currentGameText").innerHTML = "Aktuelle <b>Spielnummer: </b>" + currentGame + ", <b>Kartennummer:</b> " + currentMappingNummer + " - "+ startingTeam;
     }
     // When the user clicks on the button, open the modal
     btn.onclick = function() {
