@@ -9,19 +9,20 @@ h1 {
   text-align: center;
 }
 
-h2{
-  margin:0;
+h2 {
+  margin: 0;
 }
 
-h3{
-  margin:0;
+h3 {
+  margin: 0;
 }
 
-label{
+label {
   font-size: 2rem;
 }
-.form-control{
-  height:5rem;
+
+.form-control {
+  height: 5rem;
   font-size: 2rem;
 }
 
@@ -46,19 +47,41 @@ label{
   padding: 1.8rem 2rem;
 }
 
+.debug-btn {
+  background-color: #4B8F8F;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  -webkit-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
+  box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
+  width: 30%;
+  height: 70px;
+}
+
+.debug-footer-text {
+  color: black;
+  font-size: 1.5rem;
+}
+
+.footer {
+  padding: 2rem 2rem;
+  background-color: white;
+  text-align: center;
+}
+
 .h1-title {
   padding: 1rem 1rem 1rem 2rem;
   background-color: #81B8C1;
-  color:white;
+  color: white;
 }
 
 .header {
   padding: 0.5rem 1rem 1rem 2rem;
   background-color: white;
-}
-
-.footer {
-  padding: 0 15px 10px 15px;
 }
 
 .modal-content {
@@ -85,8 +108,8 @@ label{
   -webkit-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
   box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
-  width:100%;
-  height:100px;
+  width: 100%;
+  height: 100px;
 }
 
 .modal-secondary-btn {
@@ -100,8 +123,8 @@ label{
   -webkit-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
   box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
-  width:100%;
-  height:100px;
+  width: 100%;
+  height: 100px;
 }
 
 .modal-fields {
@@ -130,7 +153,6 @@ label{
   box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
   color: white;
 }
-
 
 .wordcard {
   font-size: 2rem;
