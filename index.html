@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <title>CODENAMES 2020</title>
 
+  <!--  Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Ubuntu&display=swap" rel="stylesheet">
+
   <!-- CSS Style sheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
@@ -17,28 +20,54 @@
 </head>
 
 <body>
-  <h1>CODENAMES 2020</h1>
+  <div class="h1-title">
+    <h1>CODENAMES 2020</h1>
+  </div>
+
 
   <!-- Header User Input -->
 
   <div class="header">
 
-    <div class="row">
-      <div class="col-3">
-        <input class="form-control" type="number" placeholder="Bitte Spielnummer eingeben" id="userinput" min="1">
+    <div class="row d-flex justify-content-center">
+      <button class="btn start-game" type="submit" onclick="openModal()" id="modal-button">Neues Spiel beginnen</button>
+    </div>
+  </div>
+
+  <!-- Modal content -->
+  <div id="modal-box" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <h3><b>Spiel- und Kartennummer eingeben</b></h3>
+      <div class="modal-fields">
+        <label>Spielnummer eingeben</label>
+        <input class="form-control" type="number" placeholder="Spielnummer eingeben (1-999)" id="userinput" min="1">
+        <br />
+        <label>Kartennummer eingeben</label>
+        <input class="form-control" type="number" placeholder="Bitte Kartennummer eingeben (1-70)" id="mapping_input" min="1" max="70">
       </div>
-      <div class="col-3">
-        <button class="btn btn-outline-success" type="submit" onclick="loadGame()" id="game_number">Spielfeld laden</button>
+      <br />
+      <h3>Für <b>Ratende</b></h3>
+      <div class="modal-fields">
+        <button class="btn modal-btn" type="submit" onclick="loadGame(); hiddenMapping(); clearStyling()">Spielfeld als Ratender laden</button>
       </div>
-      <div class="col-3">
-        <input class="form-control" type="number" placeholder="Bitte Kartennummer eingeben" id="mapping_input" min="1" max="70">
+      <br /><br />
+
+      <h3>Für <b>Erklärer</b></h3>
+      <div class="modal-fields">
+        <button class="btn modal-btn" type="submit" onclick="loadGame(); mappingByNumber()" id="game_number">Spielfeld als Erklärer laden</button>
+        <br /><br /><br /><br />
+        <!--Zufallsgenerator
+        <h4>Zufällige Spiel- und Kartennummer generieren</h4>
+        <div class="modal-fields">
+          <button class="btn modal-btn" type="submit" onclick="generateRandomNumber()" id="random_number">Zufallszahlen generieren</button>
+-->
       </div>
-      <div class="col-3">
-        <button class="btn btn-outline-success" type="submit" onclick="loadGame(); mappingByNumber()" id="game_number">Als Spielleiter laden</button>
-      </div>
+
     </div>
 
-
+  </div>
   </div>
 
 
@@ -47,211 +76,211 @@
   <div class="game">
 
 
-    <div class="row rowstyle">
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word1">Default1</span>
+    <div class="row rowstyle d-flex justify-content-center">
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word1">Wortkarte 1</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word2">Default2</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word3">Default3</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word4">Default4</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word5">Default5</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word6">Default6</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word7">Default7</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word8">Default8</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word9">Default9</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word10">Default10</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
-      </div>
 
 
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word11">Default11</span>
-        <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word12">Default12</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word2">Wortkarte 2</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word13">Default13</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word3">Wortkarte 3</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word14">Default14</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word4">Wortkarte 4</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word15">Default15</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word5">Wortkarte 5</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
 
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word16">Default16</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word6">Wortkarte 6</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word17">Default17</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word7">Wortkarte 7</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word18">Default18</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word8">Wortkarte 8</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word19">Default19</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word9">Wortkarte 9</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word20">Default20</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word10">Wortkarte 10</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
 
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word21">Default21</span>
+
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word11">Wortkarte 11</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word22">Default22</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word12">Wortkarte 12</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word23">Default23</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word13">Wortkarte 13</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word24">Default24</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word14">Wortkarte 14</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
       </div>
-      <div class="col-lg-2 col-sm-4 cardstyle">
-        <span class="wordcard" id="word25">Default25</span>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word15">Wortkarte 15</span>
         <br />
-        <span class="navigation" onclick="changeBlack(this)">« |</span>
-        <span class="navigation" onclick="changeRed(this)"> rot |</span>
-        <span class="navigation" onclick="changeBlue(this)"> blau |</span>
-        <span class="navigation" onclick="changeGray(this)"> neutral</span>
+
+
+
+
+      </div>
+
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word16">Wortkarte 16</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word17">Wortkarte 17</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word18">Wortkarte 18</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word19">Wortkarte 19</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word20">Wortkarte 20</span>
+        <br />
+
+
+
+
+      </div>
+
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word21">Wortkarte 21</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word22">Wortkarte 22</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word23">Wortkarte 23</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word24">Wortkarte 24</span>
+        <br />
+
+
+
+
+      </div>
+      <div class="col-lg-2 col-sm-5 cardstyle" onclick="revealColor(this)">
+        <span class="wordcard" id="word25">Wortkarte 25</span>
+        <br />
+
+
+
+
       </div>
     </div>
 
@@ -259,7 +288,7 @@
     <!--Footer - Start random game button-->
 
     <div class="footer">
-      <button onclick="showNewDeck()" type="button" class="btn btn-outline-danger btn-lg">Karten mischen</button>
+      <button onclick="showNewDeck()" type="button" class="btn btn-dark btn-lg">Karten zufällig mischen</button>
     </div>
   </div>
 
@@ -269,22 +298,44 @@
 
   <!-- JS Berechnung-->
   <script type="text/javascript">
-    //change card color //
-    function changeBlack(divObj) {
-      divObj.parentElement.style.background = "black";
+    var currentMap = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
+    var currentGame = 0;
+    var currentMappingNummer = 0;
+
+/*
+    function setCurrentGame (){
+        document.getElementById(currentGameId).innerHTML = "currentGame + currentMappingNummer";
+    }*/
+
+
+    function revealColor(divObj) {
+      console.log(currentMap);
+      console.log(divObj);
+      var childId = divObj.firstElementChild.id
+      console.log(childId);
+      var cardPositionInArray = childId.match(/\d+/)[0] - 1;
+      console.log(cardPositionInArray);
+
+
+      if (currentMap[cardPositionInArray] === 0) {
+        document.getElementById(childId).parentElement.style.background = "#D1C3AE";
+        document.getElementById(childId).parentElement.style.border = "2px solid #D1C3AE";
+      } else if (currentMap[cardPositionInArray] === 1) {
+        document.getElementById(childId).parentElement.style.background = "#61C0BF";
+        document.getElementById(childId).parentElement.style.border = "2px solid #61C0BF";
+      } else if (currentMap[cardPositionInArray] === 2) {
+        document.getElementById(childId).parentElement.style.background = "#FF8085";
+        document.getElementById(childId).parentElement.style.border = "2px solid #FF8085";
+      } else if (currentMap[cardPositionInArray] === 3) {
+        document.getElementById(childId).parentElement.style.background = "#403B34";
+        document.getElementById(childId).parentElement.style.border = "2px solid black";
+
+      } else {
+        alert("Fehler");
+      }
     }
 
-    function changeRed(divObj) {
-      divObj.parentElement.style.background = "red";
-    }
 
-    function changeBlue(divObj) {
-      divObj.parentElement.style.background = "blue";
-    }
-
-    function changeGray(divObj) {
-      divObj.parentElement.style.background = "#999";
-    }
 
     // Word library
     var word_library = ["STEMPEL",
@@ -804,6 +855,8 @@
         tempElementID = "word";
       }
 
+      currentGame = input_game.value;
+
 
       function numbersOnly(value) {
         if (typeof(value) === 'number') {
@@ -817,10 +870,11 @@
     function mappingByNumber() {
       var input_mapping = document.getElementById('mapping_input');
       var tempMappingID = "word_mapping";
+      currentMappingNummer=input_mapping.value;
       tempMappingID += input_mapping.value;
       console.log(tempMappingID);
       console.log(eval(tempMappingID));
-      var currentMap = eval(tempMappingID);
+      currentMap = eval(tempMappingID);
       console.log(currentMap);
       tempMappingID = "word_mapping";
       var tempElementID = "word";
@@ -828,19 +882,84 @@
       for (i = 0; i < 25; i++) {
         tempElementID += i + 1;
         if (currentMap[i] === 0) {
-          document.getElementById(tempElementID).parentElement.style.background = "#333";
+          document.getElementById(tempElementID).parentElement.style.background = "#FFFEEB";
+          document.getElementById(tempElementID).parentElement.style.border = "2px solid #D1C3AE";
         } else if (currentMap[i] === 1) {
-          document.getElementById(tempElementID).parentElement.style.background = "blue";
+          document.getElementById(tempElementID).parentElement.style.background = "#BBDED6";
+          document.getElementById(tempElementID).parentElement.style.border = "2px solid #61C0BF";
         } else if (currentMap[i] === 2) {
-          document.getElementById(tempElementID).parentElement.style.background = "red";
+          document.getElementById(tempElementID).parentElement.style.background = "#FFB6B9";
+          document.getElementById(tempElementID).parentElement.style.border = "2px solid #FF8085";
         } else if (currentMap[i] === 3) {
-          document.getElementById(tempElementID).parentElement.style.background = "black";
+          document.getElementById(tempElementID).parentElement.style.background = "#636363";
+          document.getElementById(tempElementID).parentElement.style.border = "2px solid black";
+
         } else {
           alert("Fehler");
         }
         tempElementID = "word";
       }
     }
+
+    function hiddenMapping() {
+      var input_mapping = document.getElementById('mapping_input');
+      currentMappingNummer=input_mapping.value;
+      var tempMappingID = "word_mapping";
+      tempMappingID += input_mapping.value;
+      console.log(tempMappingID);
+      console.log(eval(tempMappingID));
+      currentMap = eval(tempMappingID);
+      console.log(currentMap);
+    }
+
+    //Modalbox
+    var modal = document.getElementById("modal-box");
+    // Get the button that opens the modal
+    var btn = document.getElementById("modal-button");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+
+    function clearStyling() {
+      var tempElementID = "word";
+      for (i = 0; i < 25; i++) {
+        tempElementID += i + 1;
+        document.getElementById(tempElementID).parentElement.style.background = "white";
+        document.getElementById(tempElementID).parentElement.style.border = "white";
+        tempElementID = "word";
+      }
+    }
+
+
+    /*
+        function generateRandomNumber() {
+          var randomGame = getRandomIntInclusive(1, 9999);
+          var randomMapping = getRandomIntInclusive(1, 70);
+          console.log(randomGame, randomMapping);
+          alert("Spielnummer: " + randomGame + ", Kartennummer: " + randomMapping);
+          document.getElementById(randomoutput).innerHTML = "Test";
+          }
+
+        function getRandomIntInclusive(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }*/
 
     ///Show Mapping ///
     //0=neutral, 1=blue, 2=red, 3=eightball
