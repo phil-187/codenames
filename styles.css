@@ -21,7 +21,8 @@ label{
   font-size: 2rem;
 }
 .form-control{
-  height:4rem;
+  height:5rem;
+  font-size: 2rem;
 }
 
 .border {
@@ -42,8 +43,9 @@ label{
 }
 
 .col-lg-2 {
-  padding: 1.5rem 2rem;
+  padding: 1.8rem 2rem;
 }
+
 .h1-title {
   padding: 1rem 1rem 1rem 2rem;
   background-color: #81B8C1;
@@ -73,7 +75,22 @@ label{
 }
 
 
-.modal-btn {
+.modal-primary-btn {
+  background-color: #4B8F8F;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2rem;
+  -webkit-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
+  box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
+  width:100%;
+  height:100px;
+}
+
+.modal-secondary-btn {
   background-color: #A5CBD1;
   border-radius: 10px;
   padding: 0.5rem 1rem;
@@ -85,7 +102,7 @@ label{
   -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
   box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.35);
   width:100%;
-  height:30%;
+  height:100px;
 }
 
 .modal-fields {
