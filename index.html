@@ -180,7 +180,7 @@
     <!--Footer - Start random game button-->
 
     <div class="footer">
-      <button onclick="showNewDeck()" type="button" class="btn btn-dark btn-lg">Karten zufällig mischen</button>
+      <button onclick="showNewDeck(); clearStyling()" type="button" class="btn btn-dark btn-lg">Karten zufällig mischen</button>
     </div>
   </div>
 
@@ -227,7 +227,7 @@
         document.getElementById(childId).parentElement.style.color = "#403B34";
 
       } else {
-        alert("Fehler");
+        alert("Klicke auf 'Neues Spiel beginnen' um zu spielen");
       }
     }
 
@@ -780,15 +780,19 @@
         if (currentMap[i] === 0) {
           document.getElementById(tempElementID).parentElement.style.background = "#FFFEEB";
           document.getElementById(tempElementID).parentElement.style.border = "2px solid #D1C3AE";
+          document.getElementById(tempElementID).parentElement.style.color = "black";
         } else if (currentMap[i] === 1) {
           document.getElementById(tempElementID).parentElement.style.background = "#BBDED6";
           document.getElementById(tempElementID).parentElement.style.border = "2px solid #61C0BF";
+          document.getElementById(tempElementID).parentElement.style.color = "black";
         } else if (currentMap[i] === 2) {
           document.getElementById(tempElementID).parentElement.style.background = "#FFB6B9";
           document.getElementById(tempElementID).parentElement.style.border = "2px solid #FF8085";
+          document.getElementById(tempElementID).parentElement.style.color = "black";
         } else if (currentMap[i] === 3) {
           document.getElementById(tempElementID).parentElement.style.background = "#636363";
           document.getElementById(tempElementID).parentElement.style.border = "2px solid black";
+          document.getElementById(tempElementID).parentElement.style.color = "black";
 
         } else {
           alert("Fehler");
