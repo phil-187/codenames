@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" name="viewport" content="user-scalable=no">
   <title>CODENAMES 2020</title>
 
   <!--  Google Fonts -->
@@ -49,11 +49,11 @@
       </div>
       <br />
       <div class="modal-fields">
-        <button class="btn modal-primary-btn" type="submit" onclick="loadGame(); hiddenMapping(); clearStyling()">Spielfeld als <b>Ratender</b> laden</button>
+        <button class="btn modal-primary-btn" type="submit" onclick="loadGame(); hiddenMapping(); clearStyling(); closemodal()" id="guesser-btn">Spielfeld als <b>Ratender</b> laden</button>
       </div>
       <br /><br />
       <div class="modal-fields">
-        <button class="btn modal-secondary-btn" type="submit" onclick="loadGame(); mappingByNumber()" id="game_number">Spielfeld als <b>Erklärer</b> laden</button>
+        <button class="btn modal-secondary-btn" type="submit" onclick="loadGame(); mappingByNumber(); closemodal()" id="explainer-btn">Spielfeld als <b>Erklärer</b> laden</button>
         <br /><br /><br /><br />
         <!--Zufallsgenerator
         <h4>Zufällige Spiel- und Kartennummer generieren</h4>
@@ -194,10 +194,10 @@
     var currentGame = 0;
     var currentMappingNummer = 0;
 
-/*
-    function setCurrentGame (){
-        document.getElementById(currentGameId).innerHTML = "currentGame + currentMappingNummer";
-    }*/
+    /*
+        function setCurrentGame (){
+            document.getElementById(currentGameId).innerHTML = "currentGame + currentMappingNummer";
+        }*/
 
 
     function revealColor(divObj) {
@@ -766,7 +766,7 @@
     function mappingByNumber() {
       var input_mapping = document.getElementById('mapping_input');
       var tempMappingID = "word_mapping";
-      currentMappingNummer=input_mapping.value;
+      currentMappingNummer = input_mapping.value;
       tempMappingID += input_mapping.value;
       console.log(tempMappingID);
       console.log(eval(tempMappingID));
@@ -799,7 +799,7 @@
 
     function hiddenMapping() {
       var input_mapping = document.getElementById('mapping_input');
-      currentMappingNummer=input_mapping.value;
+      currentMappingNummer = input_mapping.value;
       var tempMappingID = "word_mapping";
       tempMappingID += input_mapping.value;
       console.log(tempMappingID);
@@ -814,6 +814,14 @@
     var btn = document.getElementById("modal-button");
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
+    // Get the buttons that close the button
+    var explainermodal = document.getElementById("explainer-btn");
+    var guessermodal = document.getElementById("guesser-btn");
+
+    function closemodal() {
+      modal.style.display = "none";
+    }
+
 
     // When the user clicks on the button, open the modal
     btn.onclick = function() {
@@ -823,6 +831,8 @@
     span.onclick = function() {
       modal.style.display = "none";
     }
+
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
