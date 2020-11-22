@@ -747,25 +747,37 @@
     function loadGame() {
       var input_game = document.getElementById('userinput');
 
-      //Unrandom Karten zusammensetzen//
-      var tempNumber = BigInt(input_game.value) * 808474512574n * 546354339843785629n;
-      var calculated_game_temp = Array.from(String(tempNumber), Number);
-      var calculated_game = calculated_game_temp.filter(numbersOnly);
+      if (input_game.value > 0) {
 
-      var tempElementID = "word";
-      for (i = 0; i < 25; i++) {
-        tempElementID += i + 1;
-        document.getElementById(tempElementID).innerHTML = word_library[calculated_game[i] + 10 * i];
-        tempElementID = "word";
-      }
-      currentGame = input_game.value;
+        //Unrandom Karten zusammensetzen//
+        var tempNumber = BigInt(input_game.value) * 808474512574n * 546354339843785629n;
+        var calculated_game_temp = Array.from(String(tempNumber), Number);
+        var calculated_game = calculated_game_temp.filter(numbersOnly);
 
-      function numbersOnly(value) {
-        if (typeof(value) === 'number') {
-          return value;
+        var tempElementID = "word";
+        for (i = 0; i < 25; i++) {
+          tempElementID += i + 1;
+          document.getElementById(tempElementID).innerHTML = word_library[calculated_game[i] + 10 * i];
+          tempElementID = "word";
         }
+        currentGame = input_game.value;
+
+        function numbersOnly(value) {
+          if (typeof(value) === 'number') {
+            return value;
+          }
+        }
+      } else {
+        alert("Bitte gib eine Spielnummer zwischen 1-999 ein");
       }
     }
+
+
+
+
+
+
+
 
     //Erklärer - Kartennummer (Userinput) als hinterlegtes Array identifizieren
     function mappingByNumber() {
